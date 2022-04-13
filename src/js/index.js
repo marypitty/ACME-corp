@@ -41,6 +41,7 @@ gsap.from(".btn2", {
     },
     opacity: 0,
     duration: 2,
+    ease:'bounce'
     
 })
 
@@ -51,6 +52,7 @@ gsap.from(".btn3", {
     },
     opacity: 0,
     duration: 2,
+    ease: 'bounce'
 })
 
 //immagine header
@@ -59,6 +61,29 @@ gsap.from(".radio-img", {
     duration: 2,
     ease: 'bounce'
 });
+
+//parte centrale
+gsap.from(".transition", {
+    scrollTrigger: {
+        trigger: ".btn2",
+        toggleActions: "restart none restart none",
+    },
+    x: -400,
+    duration: 1.5,
+   
+});
+
+gsap.from(".copy", {
+    scrollTrigger: {
+        trigger: ".btn2",
+        toggleActions: "restart none restart none",
+    },
+    x: -400,
+    duration: 1,
+   
+});
+
+
 
 //scrollbar
 let scrollbar = gsap.timeline({
@@ -80,7 +105,7 @@ let willy = gsap.timeline({
 
     }
 });
-willy.from(".wp-block-group__inner-container", { x: -200, opacity: 0, duration: 1 })
+willy.from(".willy", { x: -200, opacity: 0, duration: 1 })
 
 
 //immagini servizi
@@ -90,7 +115,8 @@ gsap.from(".servizio", {
         toggleActions: "restart none none none"
     },
     opacity: 0,
-    duration: 5
+    duration: 5,
+    ease:'bounce'
 });
 
 //Partners logo
@@ -101,30 +127,20 @@ gsap.from(".partner-logo", {
     },
     opacity: 0,
     duration: 5,
-    ease: 'pop-up'
+    ease: 'bounce'
 });
 
 
 //Chi siamo
-gsap.from(".size-full", {
+gsap.from(".trigger", {
     scrollTrigger: {
         trigger: ".white-bg",
         toggleActions: "restart none none none"
     },
     opacity: 0,
     duration: 3,
-    ease: 'pop-up'
+    ease:'bounce'
 });
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -138,31 +154,25 @@ function toggleDrawer() {
 
 drawerBtnElement.addEventListener('click', toggleDrawer);
 
+
 /* COUNTDOWN */
 
 const expireDate = new Date("Apr 18, 2022 18:00:00").getTime();
-
-// Intervallo per aggiornare countdown ogni secondo
 const x = setInterval(function () {
-
-    // Data e ora odierni
+   
     let now = new Date().getTime();
-
-    // DIfferenza tra la data odiena e la data del contdown 
     let distance = expireDate - now;
 
-    // Calcolo giorni, ore, minuti e secondi
     let days = Math.floor(distance / (1000 * 60 * 60 * 24));
     let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    // Inserisco risultato nell'HTML  
+     
     document.getElementById("days").innerHTML = days;
     document.getElementById("hours").innerHTML = hours;
     document.getElementById("minutes").innerHTML = minutes;
     document.getElementById("seconds").innerHTML = seconds;
 
-    // Se il countdown scade:
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("demo").innerHTML = "OFFERTA SCADUTA!";
