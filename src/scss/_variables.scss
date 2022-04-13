@@ -6,7 +6,12 @@ $black: #211f1e;
 $white: #fcf9f8;
 $red: #d70f0f;
 $dark-red: #530000;
-$breakpoints: ( xs: 1rem, //16px
+
+
+
+//BREAKPOINTS
+$breakpoints: ( 
+xs: 1rem, //16px
 sm: 47rem, //752px
 md: 65rem, //1040px
 lg: 81rem, //1296px
