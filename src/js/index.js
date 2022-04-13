@@ -62,28 +62,6 @@ gsap.from(".radio-img", {
     ease: 'bounce'
 });
 
-//parte centrale
-gsap.from(".transition", {
-    scrollTrigger: {
-        trigger: ".btn2",
-        toggleActions: "restart none restart none",
-    },
-    x: -400,
-    duration: 1.5,
-   
-});
-
-gsap.from(".copy", {
-    scrollTrigger: {
-        trigger: ".btn2",
-        toggleActions: "restart none restart none",
-    },
-    x: -400,
-    duration: 1,
-   
-});
-
-
 
 //scrollbar
 let scrollbar = gsap.timeline({
